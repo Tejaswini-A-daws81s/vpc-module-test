@@ -1,19 +1,23 @@
 output "vpc_id" {
-  value       = module.vpc.vpc_id
+  value       = aws_vpc.main.id
 }
 
 output "ig_id" {
-  value       = module.vpc.ig_id
+  value = aws_internet_gateway.main.id
 }
 
 output "public_subnet_ids" {
-  value = aws_subnet.public[*].id
+    value = module.vpc.public_subnet_ids
 }
 
-output "private_subnet_ids" {
-  value = aws_subnet.private[*].id
+output "private_subnet_ids"{
+  value = module.vpc.private_subnet_ids
 }
 
-output "database_subnet_ids" {
-  value = aws_subnet.database[*].id
+output "database_subnet_ids"{
+  value = module.vpc.database_subnet_ids
+}
+
+output "database_subnet_group_name"{
+  value = module.vpc.database_subnet_group_name
 }
