@@ -1,10 +1,10 @@
 output "vpc_id" {
-  value       = aws_vpc.main.id
+  value       = module.vpc.vpc_id
 }
 
-output "ig_id" {
-  value = aws_internet_gateway.main.id
-}
+# output "ig_id" {
+#   value = module.vpc.ig_id.id
+# }
 
 output "public_subnet_ids" {
     value = module.vpc.public_subnet_ids
